@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -18,43 +19,32 @@ namespace InterfazIT
         }
         protected void UploadButton_Click(object sender, EventArgs e)
         {
-            // Specify the path on the server to
-            // save the uploaded file to.
+            // Especificar la ruta del servidor donde se guardaran los archivos.
             String savePath = @"C:\tempera\";
 
-            // Before attempting to perform operations
-            // on the file, verify that the FileUpload 
-            // control contains a file.
+            // Antes de iniciar validaremos que los FileUpload contengan datos.
             if (FileUpload1.HasFile && FileUpload2.HasFile && FileUpload3.HasFile)
             {
-                // Get the name of the file to upload.
-                //String filePDF = FileUpload1.FileName;
-                //String fileFirma = FileUpload2.FileName;
-
-                // Get the name of the file to upload.
+                // Obtenemos el nombre del archivo a subir.
                 string filePDF = Server.HtmlEncode(FileUpload1.FileName);
                 string fileFirma = Server.HtmlEncode(FileUpload2.FileName);
                 string fileImg = Server.HtmlEncode(FileUpload3.FileName);
 
-                // Get the extension of the uploaded file.
+                // Obtenemos la extension del archivo a subir.
                 string extensionPDF = System.IO.Path.GetExtension(filePDF);
                 string extensionFirma = System.IO.Path.GetExtension(fileFirma);
                 string extensionImg = System.IO.Path.GetExtension(fileImg);
 
-                if (extensionPDF == ".pdf" && extensionFirma == ".p12" && (extensionImg == ".jpg" || extensionImg == ".png" || extensionFirma == ".emf"))
+                if (extensionPDF == ".pdf" && extensionFirma == ".p12" &&
+                    (extensionImg == ".jpg" || extensionImg == ".png"))
                 {
-                    // Append the name of the file to upload to the path.
+                    // Concatenamos el nombre del archivo con la ruta del servidor.
                     String savePathPDF = savePath + filePDF;
                     String savePathFirma = savePath + fileFirma;
                     String savePathImg = savePath + fileImg;
 
-                    // Call the SaveAs method to save the 
-                    // uploaded file to the specified path.
-                    // This example does not perform all
-                    // the necessary error checking.               
-                    // If a file with the same name
-                    // already exists in the specified path,  
-                    // the uploaded file overwrites it.
+                    // Llamamos al metodo SaveAs para guardar el archiv osubido el ruta especificada.
+                    // Los archivos con el mismo nombre se sobrescribiran.
                     FileUpload1.SaveAs(savePathPDF);
                     FileUpload2.SaveAs(savePathFirma);
                     FileUpload3.SaveAs(savePathImg);
@@ -99,40 +89,21 @@ namespace InterfazIT
                         Response.BinaryWrite(data);
                         Response.End();
                     }
-                    // Notify the user of the name of the file
-                    // was saved under.
+                    // Notificamos al usuario que su archivo ha sido subido con exito.
                     UploadStatusLabel.Text = "Tus archivos han sido subidos con éxito!";
                 }
                 else
             {
-                // Notify the user that a file was not upload for correct extension.
+                // Notificamos al usuario que su archivo tiene una extension no valida dentro de los
+                // parametros antes asignados.
                 UploadStatusLabel.Text = "Seleccione archivos validos.";
+                }
             }
-        }
-        else
-        {
-            // Notify the user that a file was not uploaded.
-            UploadStatusLabel.Text = "Seleccione los archivos necesarios para continuar.";
-    }
-            //using (PdfDocumentProcessor processor = new PdfDocumentProcessor())
-            //{
-            //    // Load a document.
-            //    var CurrentDirectory = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            //    processor.LoadDocument(txtFile.Text);
-
-            //    // Attach a file to the PDF document. 
-            //    processor.AttachFile(new PdfFileAttachment()
-            //    {
-            //        CreationDate = DateTime.Now,
-            //        Description = "This is my attach file.",
-            //        FileName = "MyAttach.txt",
-            //        Data = File.ReadAllBytes("..\\..\\FileToAttach.txt")
-            //    });
-
-            //    // The attached document.
-            //    processor.SaveDocument("..\\..\\Result.pdf");
-            //}
-
+            else
+            {
+                // Notificamos al usuario que su archivo no pudo ser subido.
+                UploadStatusLabel.Text = "Seleccione los archivos necesarios para continuar.";
+            }
         }
     }
 }

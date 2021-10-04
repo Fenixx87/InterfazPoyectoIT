@@ -32,27 +32,5 @@
             <br />
         </div>
     </form>
-    <%--<script>
-        const d = document,
-            $inputUser = d.getElementById("txtUser"),
-            $inputKey = d.getElementById("txtKey"),
-            $spanUser = d.getElementById("notificationUser"),
-            $spanKey = d.getElementById("notificationKey"),
-            $btnPrueba = d.getElementById("btnPrueba"),
-            $form = d.getElementById("form1");
-
-        d.addEventListener("DOMContentLoaded", e => {
-            $form.addEventListener("submit", e => {
-                e.preventDefault();
-                if ($inputUser.value == "") {
-                    $spanUser.classList.remove("hidden");
-                }
-                if ($inputKey.value == "") {
-                    $spanKey.classList.remove("hidden");
-                }
-                this.submit();
-            })
-        })
-    </script>--%>
 </body>
 </html>

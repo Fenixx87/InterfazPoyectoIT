@@ -26,10 +26,10 @@ namespace InterfazIT
 
         if (is_validate())
             {   
-            //MessageBox.Show("Datos Agregados Correctamente", "Validaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Datos Agregados Correctamente", "Validaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (dr.HasRows)
             {
-                //Response.Redirect("Default.aspx");
+                Response.Redirect("archivo.aspx");
 
             } else 
                 {
