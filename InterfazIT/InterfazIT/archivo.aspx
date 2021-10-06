@@ -17,17 +17,31 @@
     <form id="form1" runat="server">
          <div>
             <h4>Seleccione su PDF:</h4>
-            <asp:FileUpload id="FileUpload1" runat="server" CssClass="upload"/>
+            <asp:FileUpload id="FileUpload1" runat="server" CssClass="upload" />
             <br/>
             <h4>Seleccione su certificado p12:</h4>
             <asp:FileUpload id="FileUpload2" runat="server" CssClass="upload"/>
-             <br/>
+             <!--<br/>
              <h4>Seleccione la imagen de su firma:</h4>
-            <asp:FileUpload id="FileUpload3" runat="server" CssClass="upload"/>
+            <asp:FileUpload id="FileUpload3" runat="server" CssClass="upload"/>-->
             <br/><br/>
+            <asp:Label ID ="lblData" runat="server" Text="Ingrese los datos siguientes datos:" />
+             <br /><br/>
+             <asp:Label ID="lbllocacion" runat="server" Text="Seleccione su locacion actual: " />
+             <asp:DropDownList ID="CmbLocacion" runat="server" OnSelectedIndexChanged="CmbLocacion_SelectedIndexChanged">
+                 <asp:ListItem>Ecuador</asp:ListItem>
+             </asp:DropDownList>
+             <br />
+             <!--<asp:Label ID="lblInfo" runat="server" Text="Ingrese un medio de contacto: " />
+             <asp:TextBox ID ="txtInfo" runat="server" />
+             <br />-->
+             <asp:Label ID="lblRazon" runat="server" Text="Ingrese la razon de su firma: " />
+             <asp:TextBox ID ="txtRazon" runat="server" />
+             <br /><br />
             <asp:Button ID="btnPDF" Text="Subir Firma" OnClick="UploadButton_Click" runat="server"/>  
              <br/>
             <asp:Label id="UploadStatusLabel" runat="server" />
+            <br />            
         </div>
     </form>
 </body>
