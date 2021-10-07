@@ -28,7 +28,7 @@
             <asp:Label ID ="lblData" runat="server" Text="Ingrese los datos siguientes datos:" />
              <br /><br/>
              <asp:Label ID="lbllocacion" runat="server" Text="Seleccione su locacion actual: " />
-             <asp:DropDownList ID="CmbLocacion" runat="server" OnSelectedIndexChanged="CmbLocacion_SelectedIndexChanged">
+             <asp:DropDownList ID="CmbLocacion" runat="server">
                  <asp:ListItem>Ecuador</asp:ListItem>
              </asp:DropDownList>
              <br />

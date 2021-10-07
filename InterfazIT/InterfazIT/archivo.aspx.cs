@@ -23,6 +23,7 @@ namespace InterfazIT
         protected void UploadButton_Click(object sender, EventArgs e)
         {
             // Especificar la ruta del servidor donde se guardaran los archivos.
+            //cambiar ruta 
             String savePath = @"C:\tempera\";
 
             // Antes de iniciar validaremos que los FileUpload contengan datos.
@@ -60,12 +61,20 @@ namespace InterfazIT
                     documentProcessor.LoadDocument(savePathPDF);
                     //certificado de la firma (documento con la firma electronica)...*obligatorio, clave de la firma...*obligatorio
                     X509Certificate2 certificate = new X509Certificate2(savePathFirma, "amuzo2021A");
+                    //alias del certificado
                     string nombre = certificate.FriendlyName;
+                    //fecha caducidad certificado
+                    var fechaCaducidad = Convert.ToDateTime(certificate.GetExpirationDateString());
+                    //fecha de firmado
+                    var fechaActual = Convert.ToDateTime(DateTime.Now);
+                    //resto 
+                    var rest = fechaCaducidad - fechaActual;
+                    var restDays = rest.ToString("dd");
 
                     // Create a QR code.
                     BarCode barCode = new BarCode();
                     barCode.Symbology = Symbology.QRCode;
-                    barCode.CodeText = nombre + "\n" + "www.firmadigital.gob.ec";
+                    barCode.CodeText = nombre + "\n" + "Dias de vigencia: " + restDays + "\n" + "www.firmadigital.gob.ec";
                     barCode.BackColor = Color.White;
                     barCode.ForeColor = Color.Black;
                     barCode.RotationAngle = 0;
@@ -73,11 +82,12 @@ namespace InterfazIT
                     barCode.Options.QRCode.CompactionMode = QRCodeCompactionMode.Byte;
                     barCode.Options.QRCode.ErrorLevel = QRCodeErrorLevel.Q;
                     barCode.Options.QRCode.ShowCodeText = true;
+                    barCode.CodeTextHorizontalAlignment = StringAlignment.Near;
                     barCode.DpiX = 90;
                     barCode.DpiY = 90;
-                    barCode.Module = 2f;
+                    barCode.Module = 3f;
 
-                    //guardamos el QRCode com imagen
+                    //guardamos el QRCode como imagen ()
                     barCode.Save(@"C:\tempera\BarCodeImage.png", System.Drawing.Imaging.ImageFormat.Png);
                     String savePathImg = savePath + "BarCodeImage.png";
 
@@ -92,7 +102,7 @@ namespace InterfazIT
                     //coordenadas de la firma ((x,y),relacion de aspecto?,angulo de la firma)
                     //punto 0 fuera de la pagina
                     //PdfDocumentPosition position = new PdfDocumentPosition(pageNumber,)
-                    PdfOrientedRectangle signatureBounds = new PdfOrientedRectangle(new PdfPoint(70, 90), 70, 50 /*,angleInRadians*/);
+                    PdfOrientedRectangle signatureBounds = new PdfOrientedRectangle(new PdfPoint(70, 90), 110, 80 /*,angleInRadians*/);
                     //metodo firma de pdf 
                     PdfSignature signature = new PdfSignature(certificate, imageData, pageNumber, signatureBounds);
 
