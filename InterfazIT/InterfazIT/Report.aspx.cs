@@ -22,18 +22,12 @@ namespace InterfazIT
 
         protected void btnLlenar_Click(object sender, EventArgs e)
         {
-            
+            //nuevo objeto de tipo XtraReport
             XtraReport1 Page = new XtraReport1();
-            //string ruta = "C:\\tempera\\reporte.pdf";
-
+            //ruta de guardado de archivos en el servidor
             String savePath = @"C:\tempera\";
+            //ruta de firma en el servidor
             String savePathFirma = savePath + "SignTest.p12";
-            // Llamamos al metodo SaveAs para guardar el archivo subido el ruta especificada.
-            // Los archivos con el mismo nombre se sobrescribiran.
-            //uso de libreria de DevExpress
-            PdfDocumentProcessor documentProcessor = new PdfDocumentProcessor();
-            //documento a firmar en pdf...*obligatorio
-            //documentProcessor.LoadDocument(ruta);
             //certificado de la firma (documento con la firma electronica)...*obligatorio, clave de la firma...*obligatorio
             X509Certificate2 certificate = new X509Certificate2(savePathFirma, "amuzo2021A");
             //alias del certificado
@@ -42,7 +36,7 @@ namespace InterfazIT
             var fechaCaducidad = Convert.ToDateTime(certificate.GetExpirationDateString());
             //fecha de firmado
             var fechaActual = Convert.ToDateTime(DateTime.Now);
-            //resto 
+            //dias restantes de validez del certificado
             var rest = fechaCaducidad - fechaActual;
             var restDays = rest.ToString("dd");
 
@@ -62,21 +56,22 @@ namespace InterfazIT
             barCode.DpiY = 90;
             barCode.Module = 3f;
 
-            //guardamos el QRCode como imagen ()
+            //Ruta de guardado del QRCode como imagen 
             barCode.Save(@"C:\tempera\BarCodeImage.png", System.Drawing.Imaging.ImageFormat.Png);
             String savePathImg = savePath + "BarCodeImage.png";
 
-            //Metodo de relleno de reporte
+            //Metodo de llenado del reporte
             Page.InitData(txtName.Text, txtLastName.Text, savePathImg);
-
             Page.CreateDocument();
-            //Especificar la ruta del servidor donde se guardaran los archivos.
-            //cambiar ruta 
+            //ruta de PDF a firmar en el servidor
             string ruta = savePath + "reporte.pdf";
             Page.ExportToPdf(ruta);
+
+            //Cargado de documento
+            PdfDocumentProcessor documentProcessor = new PdfDocumentProcessor();
             documentProcessor.LoadDocument(ruta);
 
-            //Obtencion de datos de la firma
+            //Obtencion de datos para la firma
             string locacion = CmbLocacion.SelectedValue;
             string razon = txtRazon.Text;
 
@@ -96,7 +91,6 @@ namespace InterfazIT
             //detalles de la firma
             signature.Location = locacion;
             signature.Reason = razon;
-            //signature.ContactInfo = infoContacto;
 
             //retorno de documento firmado
             string FinalPath = savePath + "SignedTest.pdf";
@@ -114,12 +108,6 @@ namespace InterfazIT
 
             Response.BinaryWrite(data);
             Response.End();
-        }
-
-        protected void btnRedFirmar_Click(object sender, EventArgs e)
-        {
-            
-            //Response.Redirect("archivo.aspx");
         }
     }
 }

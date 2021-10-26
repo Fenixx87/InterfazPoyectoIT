@@ -87,24 +87,6 @@ namespace InterfazIT
         protected global::System.Web.UI.WebControls.DropDownList CmbLocacion;
 
         /// <summary>
-        /// lblInfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInfo;
-
-        /// <summary>
-        /// txtInfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtInfo;
-
-        /// <summary>
         /// lblRazon control.
         /// </summary>
         /// <remarks>
@@ -130,14 +112,5 @@ namespace InterfazIT
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLlenar;
-
-        /// <summary>
-        /// btnRedFirmar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRedFirmar;
     }
 }

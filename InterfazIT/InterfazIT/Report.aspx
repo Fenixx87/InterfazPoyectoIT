@@ -30,19 +30,14 @@
                  <asp:ListItem>Ecuador</asp:ListItem>
              </asp:DropDownList>
              <br />
-             <!--<asp:Label ID="lblInfo" runat="server" Text="Ingrese un medio de contacto: " />
-             <asp:TextBox ID ="txtInfo" runat="server" />
-             <br />-->
              <asp:Label ID="lblRazon" runat="server" Text="Ingrese la razon de su firma: " />
              <br/>             
              <asp:TextBox ID ="txtRazon" runat="server" class="inputs" />
              <br /><br />
             <asp:Button ID="btnLlenar" runat="server" text="Llenar Informe" OnClick="btnLlenar_Click" class="submit-btn"/>
-            <!--<asp:Button ID="btnRedFirmar" runat="server" Text="Firmar Documento" OnClick="btnRedFirmar_Click" />-->
             </div>
         </div>
     </form>
-    </div>
-    
+    </div>  
 </body>
 </html>
