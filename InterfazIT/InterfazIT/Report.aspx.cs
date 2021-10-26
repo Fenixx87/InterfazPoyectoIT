@@ -66,16 +66,15 @@ namespace InterfazIT
             barCode.Save(@"C:\tempera\BarCodeImage.png", System.Drawing.Imaging.ImageFormat.Png);
             String savePathImg = savePath + "BarCodeImage.png";
 
-            //byte[] imageData = File.ReadAllBytes(savePathImg);
-            //String code = nombre + "\n" + "Dias de vigencia: " + restDays + "\n" + "www.firmadigital.gob.ec";
-
+            //Metodo de relleno de reporte
             Page.InitData(txtName.Text, txtLastName.Text, savePathImg);
+
             Page.CreateDocument();
+            //Especificar la ruta del servidor donde se guardaran los archivos.
+            //cambiar ruta 
             string ruta = savePath + "reporte.pdf";
             Page.ExportToPdf(ruta);
             documentProcessor.LoadDocument(ruta);
-            // Especificar la ruta del servidor donde se guardaran los archivos.
-            //cambiar ruta 
 
             //Obtencion de datos de la firma
             string locacion = CmbLocacion.SelectedValue;

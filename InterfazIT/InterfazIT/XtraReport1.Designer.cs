@@ -32,6 +32,8 @@ namespace InterfazIT
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraReport1));
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
+            this.xrPictureBox5 = new DevExpress.XtraReports.UI.XRPictureBox();
+            this.xrPictureBox4 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.xrPictureBox3 = new DevExpress.XtraReports.UI.XRPictureBox();
@@ -64,8 +66,6 @@ namespace InterfazIT
             this.imageCollection14 = new DevExpress.Utils.ImageCollection(this.components);
             this.dpiAwareImageCollection2 = new DevExpress.Utils.DPIAwareImageCollection(this.components);
             this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
-            this.xrPictureBox4 = new DevExpress.XtraReports.UI.XRPictureBox();
-            this.xrPictureBox5 = new DevExpress.XtraReports.UI.XRPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection3)).BeginInit();
@@ -95,6 +95,23 @@ namespace InterfazIT
             this.xrPictureBox4,
             this.xrLabel5});
             this.TopMargin.Name = "TopMargin";
+            // 
+            // xrPictureBox5
+            // 
+            this.xrPictureBox5.ImageUrl = "C:\\Users\\rober\\Dropbox\\Mi PC (LAPTOP-PGDP0T8B)\\Downloads\\WhatsApp Image 2021-10-1" +
+    "5 at 09.16.56.jpeg";
+            this.xrPictureBox5.LocationFloat = new DevExpress.Utils.PointFloat(549.9999F, 24.61111F);
+            this.xrPictureBox5.Name = "xrPictureBox5";
+            this.xrPictureBox5.SizeF = new System.Drawing.SizeF(100F, 39.00002F);
+            this.xrPictureBox5.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage;
+            // 
+            // xrPictureBox4
+            // 
+            this.xrPictureBox4.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox4.ImageSource"));
+            this.xrPictureBox4.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrPictureBox4.Name = "xrPictureBox4";
+            this.xrPictureBox4.SizeF = new System.Drawing.SizeF(100F, 100F);
+            this.xrPictureBox4.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage;
             // 
             // xrLabel5
             // 
@@ -129,7 +146,7 @@ namespace InterfazIT
             // 
             this.xrPictureBox1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "ImageUrl", "?pCode")});
-            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(251.9445F, 0F);
+            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(247.7779F, 0F);
             this.xrPictureBox1.Name = "xrPictureBox1";
             this.xrPictureBox1.SizeF = new System.Drawing.SizeF(153.7499F, 149.3056F);
             this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage;
@@ -288,23 +305,6 @@ namespace InterfazIT
             // 
             this.objectDataSource1.DataSource = typeof(InterfazIT.textoss);
             this.objectDataSource1.Name = "objectDataSource1";
-            // 
-            // xrPictureBox4
-            // 
-            this.xrPictureBox4.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox4.ImageSource"));
-            this.xrPictureBox4.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.xrPictureBox4.Name = "xrPictureBox4";
-            this.xrPictureBox4.SizeF = new System.Drawing.SizeF(100F, 100F);
-            this.xrPictureBox4.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage;
-            // 
-            // xrPictureBox5
-            // 
-            this.xrPictureBox5.ImageUrl = "C:\\Users\\rober\\Dropbox\\Mi PC (LAPTOP-PGDP0T8B)\\Downloads\\WhatsApp Image 2021-10-1" +
-    "5 at 09.16.56.jpeg";
-            this.xrPictureBox5.LocationFloat = new DevExpress.Utils.PointFloat(549.9999F, 24.61111F);
-            this.xrPictureBox5.Name = "xrPictureBox5";
-            this.xrPictureBox5.SizeF = new System.Drawing.SizeF(100F, 39.00002F);
-            this.xrPictureBox5.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage;
             // 
             // XtraReport1
             // 

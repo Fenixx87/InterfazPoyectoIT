@@ -2,15 +2,16 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
 <link href="fonts/StylesReport.css" rel="stylesheet" type="text/css" />
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
+    <div class="flex-container">
+        <form id="form1" runat="server">
+        <div class="input-container">
             <asp:Label ID="lblTitulo" runat="server" Text="Ingrese su datos para el Informe"/>
             <br/>
             <br/>
@@ -41,5 +42,7 @@
             </div>
         </div>
     </form>
+    </div>
+    
 </body>
 </html>
